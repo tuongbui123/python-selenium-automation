@@ -5,14 +5,15 @@ from selenium.webdriver.common.keys import Keys
 
 @given('Open Amazon page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    #context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open()
 
 
 @when('Click on cart icon')
 def input_search(context):
-    search = context.driver.find_element(By.XPATH, "//a[@href='/gp/cart/view.html?ref_=nav_cart' and @id='nav-cart']")
-    search.click()
-
+    #search = context.driver.find_element(By.XPATH, "//a[@href='/gp/cart/view.html?ref_=nav_cart' and @id='nav-cart']")
+    #search.click()
+    context.app.header.click_cart()
 
 @then('Verify that ‘Your Amazon Cart is empty’ text is present')
 def verify_found_results_text(context):
